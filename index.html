@@ -8,62 +8,50 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background-color: #fbe3c4;
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
     }
     .container {
-      background-color: #fbe3c4;
-      width: 100%;
       max-width: 640px;
-      aspect-ratio: 640 / 640; /* 세로폭 더 늘림 */
-      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2.5vw;
+      margin: 0 auto;
+      padding: 30px 20px;
       box-sizing: border-box;
-      line-height: 1.7; /* 줄간격 넉넉하게 */
+      text-align: center;
     }
     .line {
       font-size: clamp(22px, 4.3vw, 38px);
       color: #000;
       font-weight: bold;
       text-decoration: line-through;
-      margin: 1vw 0;
+      margin: 8px 0;
     }
     .event-title {
       font-size: clamp(36px, 5.5vw, 54px);
       color: red;
       font-weight: bold;
-      margin: 1.8vw 0 1vw;
+      margin: 18px 0 10px;
     }
     .event-date {
       font-size: clamp(30px, 5.5vw, 50px);
       font-weight: bold;
       background-color: red;
       color: white;
-      padding: 1vw 3vw;
+      padding: 8px 20px;
       border-radius: 100px;
-      margin: 1.5vw 0 2vw;
+      margin: 14px 0 20px;
       display: inline-block;
     }
     .price {
       font-size: clamp(40px, 6.5vw, 60px);
       font-weight: bold;
       color: #000;
-      margin: 2.5vw 0 1.5vw;
+      margin: 25px 0 15px;
     }
     .alert {
       font-size: clamp(22px, 4vw, 32px);
       color: #000;
       font-weight: 900;
-      margin: 1vw 0;
+      margin: 10px 0 14px;
     }
     .timer {
       font-size: clamp(30px, 5.5vw, 50px);
@@ -71,11 +59,11 @@
       font-weight: bold;
       background-color: white;
       border: 2px solid #000;
-      padding: 0.8vw 3vw;
+      padding: 8px 20px;
       border-radius: 100px;
-      margin-top: 1.5vw;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
       display: inline-block;
+      margin-bottom: 10px;
     }
   </style>
 </head>

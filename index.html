@@ -1,78 +1,74 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>3차 입고 EVENT</title>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3차 입고 EVENT</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .container {
       background-color: #fbe3c4;
-      width: 100%;
-      max-width: 640px;
-      aspect-ratio: 640 / 484;
       font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 30px 20px 10px; /* 아래 여백 줄임 */
+      box-sizing: border-box;
       text-align: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      padding: 1.5vw;
-      box-sizing: border-box;
+      justify-content: start; /* 상단 정렬 */
+      gap: 18px; /* 요소 간 간격 */
     }
+
     .line {
-      font-size: clamp(18px, 3vw, 30px);
+      font-size: clamp(22px, 4.5vw, 38px);
       color: #000;
       font-weight: bold;
       text-decoration: line-through;
     }
+
     .event-title {
-      font-size: clamp(28px, 4.5vw, 48px);
+      font-size: clamp(38px, 6vw, 56px);
       color: red;
       font-weight: bold;
-      margin-top: 1.2vw;
     }
+
     .event-date {
-      font-size: clamp(24px, 4vw, 42px);
+      font-size: clamp(32px, 6vw, 52px);
       font-weight: bold;
       background-color: red;
       color: white;
-      padding: 0.5vw 2vw;
+      padding: 10px 28px;
       border-radius: 100px;
-      margin: 2vw 0;
       display: inline-block;
     }
+
     .price {
-      font-size: clamp(32px, 5.5vw, 54px);
+      font-size: clamp(44px, 6.8vw, 62px);
       font-weight: bold;
       color: #000;
-      margin: 1vw 0 1.2vw;
     }
+
     .alert {
-      font-size: clamp(18px, 3vw, 26px);
+      font-size: clamp(22px, 4vw, 32px);
       color: #000;
       font-weight: 900;
-      margin: 0.5vw 0;
     }
+
     .timer {
-      font-size: clamp(24px, 4vw, 42px);
+      font-size: clamp(30px, 5.5vw, 48px);
       color: #000;
       font-weight: bold;
       background-color: white;
       border: 2px solid #000;
-      padding: 0.5vw 2vw;
+      padding: 10px 24px;
       border-radius: 100px;
-      margin-top: 1vw;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       display: inline-block;
     }
   </style>
@@ -81,10 +77,8 @@
   <div class="container">
     <div class="line">1차 입고수량 (완판)</div>
     <div class="line">2차 입고수량 (완판)</div>
-
     <div class="event-title">3차 입고 EVENT</div>
     <div class="event-date" id="event-date">(날짜 로딩 중)</div>
-
     <div class="price">59,000 > 49,000원</div>
     <div class="alert">이벤트 종료시 무조건 가격 인상됩니다</div>
     <div class="timer" id="timer">마감 전 --:--:--</div>
@@ -95,11 +89,9 @@
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const koreaTime = new Date(utc + (9 * 60 * 60 * 1000));
-
       const month = koreaTime.getMonth() + 1;
       const date = koreaTime.getDate();
-      const dateString = `${month}/${date} 오늘만 할인!`;
-      document.getElementById("event-date").innerText = dateString;
+      document.getElementById("event-date").innerText = `${month}/${date} 오늘만 할인!`;
 
       updateKSTTimer();
       setInterval(updateKSTTimer, 1000);
@@ -109,10 +101,8 @@
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
       const koreaNow = new Date(utc + (9 * 60 * 60 * 1000));
-
       const endOfDay = new Date(koreaNow);
       endOfDay.setHours(23, 59, 59, 999);
-
       const diff = endOfDay - koreaNow;
 
       if (diff <= 0) {
@@ -123,7 +113,6 @@
       const hours = String(Math.floor(diff / (1000 * 60 * 60))).padStart(2, "0");
       const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
       const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
-
       document.getElementById("timer").innerText = `마감 전 ${hours}:${minutes}:${seconds}`;
     }
   </script>

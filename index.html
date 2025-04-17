@@ -9,12 +9,18 @@
       background-color: #fbe3c4;
       font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
       text-align: center;
-      padding: 40px 20px;
+      width: 640px;
+      height: 484px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     .line {
       font-size: 20px;
       color: #000;
-      font-weight: 500;
+      font-weight: bold;
+      text-decoration: line-through;
     }
     .event-title {
       font-size: 32px;
@@ -37,7 +43,7 @@
     .alert {
       font-size: 20px;
       color: #000;
-      font-weight: 500;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -55,16 +61,18 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const today = new Date();
-      const sunday = new Date(today);
-      sunday.setDate(sunday.getDate() - sunday.getDay());
+      const monday = new Date(today);
+      const currentDay = monday.getDay();
+      const diffToMonday = (currentDay === 0 ? -6 : 1 - currentDay); // 일요일이면 -6, 월~토면 보정
+      monday.setDate(monday.getDate() + diffToMonday);
 
-      const nextSunday = new Date(sunday);
-      nextSunday.setDate(sunday.getDate() + 7);
+      const sunday = new Date(monday);
+      sunday.setDate(monday.getDate() + 6);
 
-      const startMonth = sunday.getMonth() + 1;
-      const startDate = sunday.getDate();
-      const endMonth = nextSunday.getMonth() + 1;
-      const endDate = nextSunday.getDate() - 1;
+      const startMonth = monday.getMonth() + 1;
+      const startDate = monday.getDate();
+      const endMonth = sunday.getMonth() + 1;
+      const endDate = sunday.getDate();
 
       const dateString = `(${startMonth}/${startDate}~${endMonth}/${endDate})`;
       document.getElementById("event-date").innerText = dateString;

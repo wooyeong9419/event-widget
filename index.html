@@ -63,11 +63,22 @@
       font-weight: 900;
       margin-top: 0;
     }
-    .timer {
-      font-size: clamp(16px, 2.5vw, 24px);
-      color: #000;
+    .timer-wrap {
+      background-color: #0052cc;
+      color: #fff;
+      padding: 0.5vw 2vw;
+      border-radius: 12px;
+      font-size: clamp(20px, 4vw, 36px);
       font-weight: bold;
-      margin-top: 0.5vw;
+      margin-top: 1vw;
+      display: inline-block;
+    }
+    .timer-label {
+      margin-right: 1vw;
+    }
+    .timer-value {
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.05em;
     }
   </style>
 </head>
@@ -82,10 +93,30 @@
     <div class="price">59,000 > 49,000원</div>
 
     <div class="alert">이벤트 종료시 무조건 가격 인상됩니다</div>
-    <div class="timer" id="timer">마감 전 --:--:--</div>
+
+    <div class="timer-wrap">
+      <span class="timer-label">마감 전</span>
+      <span class="timer-value" id="timer">--:--:--</span>
+    </div>
   </div>
 
   <script>
+    // 한국 시간 기준 날짜 표시
+    document.addEventListener("DOMContentLoaded", function () {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const koreaTime = new Date(utc + (9 * 60 * 60 * 1000));
+
+      const month = koreaTime.getMonth() + 1;
+      const date = koreaTime.getDate();
+      const dateString = `${month}/${date} 오늘만 할인!`;
+      document.getElementById("event-date").innerText = dateString;
+
+      updateKSTTimer();
+      setInterval(updateKSTTimer, 1000);
+    });
+
+    // 마감 타이머
     function updateKSTTimer() {
       const now = new Date();
       const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
@@ -97,7 +128,7 @@
       const diff = endOfDay - koreaNow;
 
       if (diff <= 0) {
-        document.getElementById("timer").innerText = "마감되었습니다";
+        document.getElementById("timer").innerText = "00:00:00";
         return;
       }
 
@@ -105,24 +136,8 @@
       const minutes = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
       const seconds = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
 
-      document.getElementById("timer").innerText = `마감 전 ${hours}:${minutes}:${seconds}`;
+      document.getElementById("timer").innerText = `${hours}:${minutes}:${seconds}`;
     }
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // 날짜 텍스트 설정
-      const now = new Date();
-      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
-      const koreaTime = new Date(utc + (9 * 60 * 60 * 1000));
-
-      const month = koreaTime.getMonth() + 1;
-      const date = koreaTime.getDate();
-      const dateString = `${month}/${date} 오늘만 할인!`;
-      document.getElementById("event-date").innerText = dateString;
-
-      // 타이머 시작
-      updateKSTTimer();
-      setInterval(updateKSTTimer, 1000);
-    });
   </script>
 </body>
 </html>

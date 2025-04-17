@@ -22,7 +22,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: start;
-      gap: 16px;
+      gap: 18px;
     }
 
     .line {
@@ -49,23 +49,21 @@
       border-radius: 100px;
       display: inline-block;
       line-height: 1.6;
-      margin-top: 6px;
     }
 
     .price {
       font-size: clamp(44px, 6.8vw, 62px);
       font-weight: bold;
       color: #000;
-      line-height: 1.6;
-      margin-top: 22px; /* 🔺 오늘만 할인과 간격 줌 */
+      line-height: 1.2;
     }
 
     .alert {
-      font-size: clamp(20px, 3.5vw, 30px);  /* 🔻 살짝 축소 */
+      font-size: clamp(22px, 4vw, 32px);
       color: #000;
-      font-weight: 300;  /* 🔻 light */
-      line-height: 1.4;
-      margin-top: -6px;  /* 🔻 가격과 간격 좁힘 */
+      font-weight: 300;           /* Light 효과 */
+      line-height: 1.1;           /* ✅ 줄 간격 최소로 조정 */
+      margin-top: -10px;          /* ✅ 가격과 붙게 조정 */
     }
 
     .timer {
@@ -74,12 +72,11 @@
       font-weight: bold;
       background-color: white;
       border: 2px solid #000;
-      padding: 10px 40px; /* 🔻 위아래 줄이고 좌우 유지 */
+      padding: 8px 40px;        /* ✅ 위아래 여백 줄임 */
       border-radius: 100px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.2);
       display: inline-block;
       line-height: 1.6;
-      margin-top: 10px;
     }
   </style>
 </head>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>3차 입고 EVENT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     html, body {
       margin: 0;
@@ -16,41 +17,44 @@
     }
     .container {
       background-color: #fbe3c4;
-      width: 640px;
-      height: 484px;
+      width: 100%;
+      max-width: 640px;
+      aspect-ratio: 640 / 484;
       font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 1.5vw;
+      box-sizing: border-box;
     }
     .line {
-      font-size: 24px;
+      font-size: clamp(18px, 3vw, 30px);
       color: #000;
       font-weight: bold;
       text-decoration: line-through;
     }
     .event-title {
-      font-size: 38px;
+      font-size: clamp(28px, 4.5vw, 48px);
       color: red;
       font-weight: bold;
-      margin-top: 20px;
+      margin-top: 1.2vw;
     }
     .event-date {
-      font-size: 34px;
+      font-size: clamp(26px, 4vw, 44px);
       font-weight: bold;
       color: red;
-      margin-bottom: 40px;
+      margin-bottom: 2.5vw;
     }
     .price {
-      font-size: 44px;
+      font-size: clamp(32px, 5.5vw, 54px);
       font-weight: bold;
       color: #000;
-      margin: 10px 0 30px;
+      margin: 1vw 0 2.5vw;
     }
     .alert {
-      font-size: 22px;
+      font-size: clamp(18px, 3vw, 26px);
       color: #000;
       font-weight: bold;
     }

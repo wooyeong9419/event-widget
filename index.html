@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+    }
+    .event-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: red;
+    }
+    .benefit {
+      font-size: 18px;
+      background-color: #ffffff;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="event-title">
+      3차 입고 EVENT <span id="event-date">(날짜 로딩 중)</span>
+    </div>
+    <div class="benefit">혜택 1. 이벤트 기간내 구매시 1만원 할인</div>
+    <div class="benefit">혜택 2. 이벤트 기간내 구매시 전 옵션 무료배송</div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const today = new Date();
+      const sunday = new Date(today);
+      sunday.setDate(sunday.getDate() - sunday.getDay());
+
+      const nextSunday = new Date(sunday);
+      nextSunday.setDate(sunday.getDate() + 7);
+
+      const startMonth = sunday.getMonth() + 1;
+      const startDate = sunday.getDate();
+      const endMonth = nextSunday.getMonth() + 1;
+      const endDate = nextSunday.getDate() - 1;
+
+      document.getElementById("event-date").innerText = `(${startMonth}/${startDate}~${endMonth}/${endDate})`;
+    });
+  </script>
+</body>
+</html>

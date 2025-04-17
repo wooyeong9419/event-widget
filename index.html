@@ -15,14 +15,14 @@
     .container {
       max-width: 640px;
       margin: 0 auto;
-      padding: 30px 20px 0px; /* ✅ 아래 여백 제거 */
+      padding: 30px 20px 0px;
       box-sizing: border-box;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: start;
-      gap: 18px;
+      gap: 16px;
     }
 
     .line {
@@ -30,7 +30,7 @@
       color: #000;
       font-weight: bold;
       text-decoration: line-through;
-      line-height: 1.6; /* ✅ 줄간격 확대 */
+      line-height: 1.6;
     }
 
     .event-title {
@@ -49,6 +49,7 @@
       border-radius: 100px;
       display: inline-block;
       line-height: 1.6;
+      margin-top: 6px;
     }
 
     .price {
@@ -56,26 +57,29 @@
       font-weight: bold;
       color: #000;
       line-height: 1.6;
+      margin-top: 22px; /* 🔺 오늘만 할인과 간격 줌 */
     }
 
     .alert {
-      font-size: clamp(22px, 4vw, 32px);
+      font-size: clamp(20px, 3.5vw, 30px);  /* 🔻 살짝 축소 */
       color: #000;
-      font-weight: 900;
-      line-height: 1.6; /* ✅ 줄간격 확대 */
+      font-weight: 300;  /* 🔻 light */
+      line-height: 1.4;
+      margin-top: -6px;  /* 🔻 가격과 간격 좁힘 */
     }
 
     .timer {
-  font-size: clamp(40px, 8vw, 57px); /* 🔺폰트 키움 */
-  color: #000;
-  font-weight: bold;
-  background-color: white;
-  border: 2px solid #000;
-  padding: 16px 40px; /* 🔺패딩 키움으로 원 커지게 */
-  border-radius: 100px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  display: inline-block;
-  line-height: 1.6;
+      font-size: clamp(40px, 8vw, 57px);
+      color: #000;
+      font-weight: bold;
+      background-color: white;
+      border: 2px solid #000;
+      padding: 10px 40px; /* 🔻 위아래 줄이고 좌우 유지 */
+      border-radius: 100px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      display: inline-block;
+      line-height: 1.6;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -85,7 +89,7 @@
     <div class="line">2차 입고수량 (완판)</div>
     <div class="event-title">3차 입고 EVENT</div>
     <div class="event-date" id="event-date">(날짜 로딩 중)</div>
-    <div class="price">59,000 > 49,000원</div>
+    <div class="price">59,000 &gt; 49,000원</div>
     <div class="alert">이벤트 종료시 무조건 가격 인상됩니다</div>
     <div class="timer" id="timer">마감 전 --:--:--</div>
   </div>

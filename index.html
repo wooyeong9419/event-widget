@@ -2,38 +2,55 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
+  <title>3차 입고 EVENT</title>
   <style>
     body {
-      font-family: sans-serif;
       margin: 0;
-      padding: 0;
-      background: transparent;
-    }
-    .container {
+      background-color: #fbe3c4;
+      font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+    }
+    .line {
+      font-size: 20px;
+      color: #000;
+      font-weight: 500;
     }
     .event-title {
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 32px;
       color: red;
-    }
-    .benefit {
-      font-size: 18px;
-      background-color: #ffffff;
       font-weight: bold;
-      margin-top: 10px;
+      margin-top: 20px;
+    }
+    .event-date {
+      font-size: 28px;
+      color: red;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+    .price {
+      font-size: 36px;
+      font-weight: bold;
+      color: #000;
+      margin: 10px 0 30px;
+    }
+    .alert {
+      font-size: 20px;
+      color: #000;
+      font-weight: 500;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="event-title">
-      3차 입고 EVENT <span id="event-date">(날짜 로딩 중)</span>
-    </div>
-    <div class="benefit">혜택 1. 이벤트 기간내 구매시 1만원 할인</div>
-    <div class="benefit">혜택 2. 이벤트 기간내 구매시 전 옵션 무료배송</div>
-  </div>
+  <div class="line">1차 입고수량 (완판)</div>
+  <div class="line">2차 입고수량 (완판)</div>
+
+  <div class="event-title">3차 입고 EVENT</div>
+  <div class="event-date" id="event-date">(날짜 로딩 중)</div>
+
+  <div class="price">59,000 → 49,000원</div>
+
+  <div class="alert">이벤트 종료시 무조건 가격 인상됩니다</div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -49,7 +66,8 @@
       const endMonth = nextSunday.getMonth() + 1;
       const endDate = nextSunday.getDate() - 1;
 
-      document.getElementById("event-date").innerText = `(${startMonth}/${startDate}~${endMonth}/${endDate})`;
+      const dateString = `(${startMonth}/${startDate}~${endMonth}/${endDate})`;
+      document.getElementById("event-date").innerText = dateString;
     });
   </script>
 </body>
